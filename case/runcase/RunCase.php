@@ -38,7 +38,7 @@ class RunCase
         return $this->action->getCheckData($request_data);
     }
 
-    public function checkData($diff_data, $check_data) {
-        return true;//false
+    public function checkResult($diff_data, $check_data) {
+        return $this->pattern->checkResult($diff_data, $check_data);
     }
 }

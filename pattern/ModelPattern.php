@@ -103,6 +103,36 @@ class ModelPattern {
         $this->recursiveSet($arr, $index_key, $value);
     }
 
+    public function checkResult($diff_data, $check_data) {
+        if (1 == $check_data['status']) {
+            $check_data['data'] = json_decode($check_data['data'], true);
+        }
+        foreach ($diff_data as $index => $value) {
+            $keys = explode('.', $index);
+            print_r($keys);
+            print_r($value);
+            $check_value = $this->recursiveGet($check_data, $keys);
+            print_r("\n".$check_value);
+            if ($value === $check_value) {
+                continue;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public function recursiveGet($arr, $keys) {
+        $key = array_shift($keys);
+        if (!isset($arr[$key])) {
+            return null;
+        } elseif (empty($keys)) {
+            return $arr[$key];
+        } else {
+            $this->recursiveGet($arr[$key], $keys);
+        }
+    }
+
     public function recursiveSet(&$arr, $keys, $value) {
         $key = array_shift($keys);
         if (empty($keys)) {
