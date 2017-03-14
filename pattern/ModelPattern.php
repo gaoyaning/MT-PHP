@@ -109,10 +109,7 @@ class ModelPattern {
         }
         foreach ($diff_data as $index => $value) {
             $keys = explode('.', $index);
-            print_r($keys);
-            print_r($value);
             $check_value = $this->recursiveGet($check_data, $keys);
-            print_r("\n".$check_value);
             if ($value === $check_value) {
                 continue;
             } else {

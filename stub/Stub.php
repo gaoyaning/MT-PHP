@@ -160,8 +160,4 @@ EOF;
     public function setStubData($stub_data) {
         $this->stub_data = $stub_data;
     }
-
-    public function getPid() {
-        print_r($this->pid);
-    }
 }
