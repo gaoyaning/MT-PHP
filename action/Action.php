@@ -25,6 +25,7 @@ class Action
 
     public function stopStub() {
         $this->stub->stop();
+        sleep(1);
     }
 
     public function getCheckData($request_data) {

@@ -113,10 +113,10 @@ class ModelPattern {
             if ($value === $check_value) {
                 continue;
             } else {
-                return false;
+                return 1;
             }
         }
-        return true;
+        return 0;
     }
 
     public function recursiveGet($arr, $keys) {
